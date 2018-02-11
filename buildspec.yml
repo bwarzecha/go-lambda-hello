@@ -4,7 +4,6 @@ phases:
 
   install: 
     commands:
-      - GOPATH=`pwd`
       - go get -u github.com/golang/lint/golint
       - go get -u github.com/golang/lint/golint
       - go get -u github.com/golang/dep/cmd/dep
@@ -12,6 +11,9 @@ phases:
     commands:
       - pwd
       - find .
+      - echo $GOPATH
+      - ls -l /go
+      - echo $GITHUB_REPO
       - dep ensure
       # Ensure code passes all lint tests
       # - golint -set_exit_status
