@@ -11,7 +11,7 @@ phases:
     commands:
       - dep ensure
       # Ensure code passes all lint tests
-      - golint -set_exit_status
+      # - golint -set_exit_status
 
       # Run all tests included with our application
       - go test
