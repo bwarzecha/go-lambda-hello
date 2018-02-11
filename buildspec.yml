@@ -10,6 +10,8 @@ phases:
       - go get -u github.com/golang/dep/cmd/dep
   pre_build: 
     commands:
+      - pwd
+      - find .
       - dep ensure
       # Ensure code passes all lint tests
       # - golint -set_exit_status
