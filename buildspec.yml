@@ -11,12 +11,14 @@ phases:
     commands:
       - pwd
       - find .
+      - GOPATH=/go
       - echo $GOPATH
       - mkdir -p /go/src/$GITHUB_REPO
       - ln -s `pwd` /go/src/$GITHUB_REPO
       - ls -l /go
       - echo $GITHUB_REPO
       - cd /go/src/$GITHUB_REPO
+      - pwd
       - dep ensure
       # Ensure code passes all lint tests
       # - golint -set_exit_status
