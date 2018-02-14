@@ -9,17 +9,10 @@ phases:
       - go get -u github.com/golang/dep/cmd/dep
   pre_build: 
     commands:
-      - pwd
-      - find .
-      - export GOPATH=/go
-      - echo $GOPATH
-      - echo `pwd`
       - mkdir -p `dirname /go/src/${GITHUB_REPO}`
       - ln -s ${CODEBUILD_SRC_DIR}/ /go/src/${GITHUB_REPO}
       - ls -l /go/src/${GITHUB_REPO}
-      - echo ${GITHUB_REPO}
-      - cd  ${GOPATH}/src/${GITHUB_REPO}
-      - pwd 
+      - cd  /go/src/${GITHUB_REPO}
       - dep ensure
       # Ensure code passes all lint tests
       # - golint -set_exit_status
@@ -30,8 +23,8 @@ phases:
     commands:
       - 
       # Build our application
-      - cd  ${GOPATH}/src/${GITHUB_REPO}
-      - go build -o ${CODEBUILD_SRC_DIR}/app
+      - cd  /go/src/${GITHUB_REPO}
+      - go build
 
 artifacts:
   files:
