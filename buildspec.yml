@@ -15,7 +15,7 @@ phases:
       - echo $GOPATH
       - echo `pwd`
       - mkdir -p /go/src/${GITHUB_REPO}
-      - cp ${CODEBUILD_SRC_DIR}/. /go/src/${GITHUB_REPO}
+      - cp -a ${CODEBUILD_SRC_DIR}/. /go/src/${GITHUB_REPO}
       - ls -l /go/src/${GITHUB_REPO}
       - echo ${GITHUB_REPO}
       - cd  ${GOPATH}/src/${GITHUB_REPO} && pwd && dep ensure
