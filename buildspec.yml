@@ -1,5 +1,5 @@
-version: 0.1
-            
+version: 0.2
+
 phases:
 
   install: 
@@ -12,13 +12,15 @@ phases:
       - pwd
       - find .
       - export GOPATH=/go
-      - echo $GOPATH
+      - echo $GOPATHe 
       - echo `pwd`
       - mkdir -p /go/src/${GITHUB_REPO}
       - cp -a ${CODEBUILD_SRC_DIR}/. /go/src/${GITHUB_REPO}
       - ls -l /go/src/${GITHUB_REPO}
       - echo ${GITHUB_REPO}
-      - cd  ${GOPATH}/src/${GITHUB_REPO} && pwd && dep ensure
+      - cd  ${GOPATH}/src/${GITHUB_REPO}
+      - pwd 
+      - dep ensure
       # Ensure code passes all lint tests
       # - golint -set_exit_status
 
@@ -28,7 +30,8 @@ phases:
     commands:
       - 
       # Build our application
-      - cd  ${GOPATH}/src/${GITHUB_REPO} && go build -o app
+      - cd  ${GOPATH}/src/${GITHUB_REPO}
+      - go build -o app
 
 artifacts:
   files:
