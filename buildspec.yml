@@ -13,6 +13,7 @@ phases:
       - find .
       - export GOPATH=/go
       - echo $GOPATH
+      - echo `pwd`
       - mkdir -p /go/src/${GITHUB_REPO}
       - ln -s -v `pwd` /go/src/${GITHUB_REPO}
       - ls -l /go/src/${GITHUB_REPO}
